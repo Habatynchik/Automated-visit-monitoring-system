@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('second_name')->nullable();
             $table->date('birth_date');
-            $table->enum('status', ['0', '1']);
+            $table->enum('status', ['0', '1'])->default('0');
             $table->string('email');
             $table->string('password');
             $table->string('group_id');
