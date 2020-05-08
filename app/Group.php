@@ -21,7 +21,7 @@ class Group extends Model
     	return $this->hasOne('App\Department', 'id', 'id_department');
     }
 
-    public function schedule()
+    public function schedules()
     {
     	return $this->hasMany('App\Schedule', 'id_group', 'id');
     }

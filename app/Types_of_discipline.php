@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Types_of_discipline extends Model
 {
-    public function schedule()
+    public function schedules()
     {
     	return $this->hasMany('App\Schedule', 'id_disciplines', 'id');
     }

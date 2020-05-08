@@ -48,12 +48,12 @@ class User extends Authenticatable
         return $this->belongsTo('App\Group', 'id', 'id_group');
     }
 
-    public function pair()
+    public function pairs()
     {
         return $this->hasMany('App\Pair', 'id_user_student', 'id');
     }
 
-    public function schedule()
+    public function schedules()
     {
         return $this->hasMany('App\Schedule', 'id_teacher', 'id');
     }

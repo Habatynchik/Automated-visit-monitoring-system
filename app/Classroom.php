@@ -11,7 +11,7 @@ class Classroom extends Model
     	return $this->hasOne('App\User', 'id', 'id_assistant');
     }
 
-    public function schedule()
+    public function schedules()
     {
     	return $this->hasMany('App\Schedule', 'id_classroom', 'id');
     }
