@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'second_name', 'birth_date', 'status', 'group_id'
     ];
 
     /**
@@ -25,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'group_id', 'status'
     ];
 
     /**
@@ -34,6 +35,26 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'birth_date' => 'datetime',
     ];
+
+    public function classroom()
+    {
+        return $this->hasOne('App\Classroom', 'id_assistant', 'id');
+    }
+
+    public function group()
+    {
+        return $this->belongsTo('App\Group', 'id', 'id_group');
+    }
+
+    public function pairs()
+    {
+        return $this->hasMany('App\Pair', 'id_user_student', 'id');
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany('App\Schedule', 'id_teacher', 'id');
+    }
 }
