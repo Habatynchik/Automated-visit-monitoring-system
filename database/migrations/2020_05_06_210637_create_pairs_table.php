@@ -17,10 +17,10 @@ class CreatePairsTable extends Migration
             $table->id();
             $table->integer('id_user_student');
             $table->integer('id_schedule');
-            $table->integer('nubmer');
+            $table->integer('number');
             $table->date('date');
             $table->time('arrive_time');
-            $table->string('link');
+            $table->string('link')->nullable();;
         });
     }
 
