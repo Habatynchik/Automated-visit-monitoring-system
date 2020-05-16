@@ -21,4 +21,4 @@
     </div>
 </div>
 @endsection
-<div id="sho"></div>
+<div id="root"></div>
