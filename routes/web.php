@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('test');
+});
+
+Route::get('/api/pairs', function() {
+	return App\Pair::all();
 });
 
 Auth::routes(['register' => false]);
