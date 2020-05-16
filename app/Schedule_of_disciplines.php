@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class Schedule_of_disciplines extends Model
 {
-    //
+    
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/psr/http-message" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/laravel/installer" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/service-contracts" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-ctype" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-mbstring" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/console" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/filesystem" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-intl-idn" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-php73" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-php72" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/process" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/ralouphie/getallheaders" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/guzzlehttp/promises" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/guzzlehttp/psr7" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/guzzlehttp/guzzle" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/composer" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/psr/container" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+</project>

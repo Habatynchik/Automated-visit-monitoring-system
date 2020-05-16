@@ -38,4 +38,23 @@ class User extends Authenticatable
         'birth_date' => 'datetime',
     ];
 
+    public function classroom()
+    {
+        return $this->hasOne('App\Classroom', 'id_assistant', 'id');
+    }
+
+    public function group()
+    {
+        return $this->belongsTo('App\Group', 'id', 'id_group');
+    }
+
+    public function pairs()
+    {
+        return $this->hasMany('App\Pair', 'id_user_student', 'id');
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany('App\Schedule', 'id_teacher', 'id');
+    }
 }

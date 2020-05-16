@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePairsTable extends Migration
+class CreateScheduleOfDisciplinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreatePairsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pairs', function (Blueprint $table) {
+        Schema::create('schedule_of_disciplines', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user_student');
-            $table->integer('id_schedule');
             $table->integer('number');
-            $table->date('date');
-            $table->time('arrive_time');
-            $table->string('link')->nullable();;
+            $table->time('start_time');
+            $table->time('end_time');
         });
     }
 
@@ -31,6 +28,6 @@ class CreatePairsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pairs');
+        Schema::dropIfExists('schedule_of_disciplines');
     }
 }

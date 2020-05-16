@@ -20,9 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('second_name')->nullable();
             $table->date('birth_date');
             $table->enum('status', ['0', '1'])->default('0');
+            $table->integer('type');
             $table->string('email');
             $table->string('password');
-            $table->string('group_id');
+            $table->string('id_group')->nullable();
         });
     }
 
