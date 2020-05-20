@@ -23,6 +23,6 @@ class URLGenerationController extends Controller
             ->select('schedules.*', 'classrooms.*')
             ->get();
 
-        return view('pairs.index', ['pairs' => $pairs]);
+        return $pairs;
     }
 }

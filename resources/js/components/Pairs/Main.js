@@ -1,52 +1,52 @@
 import React, { Component, useEffect, setState, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-}));
+function Main() {
+    const [pairs, setPairs] = useState([]);
 
-function Main(){
-  const [pairs, setPairs] = useState([]);
+    useEffect(() => {
+        fetch('/api/pairs')
+            .then(response => {
+                return response.json();
+            })
+            .then(result => {
+                //Fetched pair is stored in the state
+                setPairs(result);
+            });
+    }, []);
 
-  useEffect(() => {
-    fetch('/api/pairs')
-      .then(response => {
-          return response.json();
-      })
-      .then(result => {
-          //Fetched pair is stored in the state
-          setPairs(result);
-      });
-  });
+    function renderPairs() {
+        return pairs.map(pair => {
+            return (
+                <ListItem button key={ pair.id }>
+                  <ListItemText primary={ pair.number } />
+                </ListItem>
+            );
+        })
+    }
 
-  function renderPairs (){
-    return pairs.map(pair => {
-      return (
-        <ListItem button key={ pair.id }>
-          <ListItemText primary={ pair.number } />
-        </ListItem>
-      );
-    })
-  }
+    return (
+      <div>
+        <Grid container>
+          
+          <Grid item sm={3}></Grid>
 
-  const classes = useStyles();
-  return(
-    <div className={classes.root}>
-        <List>
-           { renderPairs() }
-        </List>
-    </div>
-  );
+          <Grid item sm={6}>
+            <List>
+               { renderPairs() }
+            </List>
+          </Grid>
+
+          <Grid item sm={3}></Grid>
+        </Grid>
+      </div>
+    );
 }
 
 export default Main;
