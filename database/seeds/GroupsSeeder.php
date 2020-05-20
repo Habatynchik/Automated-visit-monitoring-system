@@ -11,11 +11,11 @@ class GroupsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('faculty')->insert([
+        DB::table('faculties')->insert([
             'name' => 'Інформаційних технологій',
         ]);
 
-        DB::table('department')->insert([
+        DB::table('departments')->insert([
             'name' => 'Комп\'ютерних мереж і систем',
         ]);
 

@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
-class URLGeneration extends Controller
+class URLGenerationController extends Controller
 {
     public function index()
     {
+
         /* $pairs = DB::table('pairs')
              ->join('schedules', 'pairs.id_schedule', '=', 'schedules.id')
              ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
