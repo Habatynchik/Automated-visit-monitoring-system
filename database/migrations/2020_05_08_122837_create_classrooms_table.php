@@ -17,8 +17,7 @@ class CreateClassroomsTable extends Migration
             $table->id();
             $table->integer('room_number');
             $table->integer('building_number');
-            $table->integer('id_assistant');
-            $table->string('link');
+            $table->integer('id_assistant')->nullable();
         });
     }
 
