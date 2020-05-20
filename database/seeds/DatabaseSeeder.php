@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SchedulesSeeder::class,
             ClassroomsSeeder::class,
             UserSeeder::class,
+            PairsSeeder::class,
             Discipline_listSeeder::class,
         ]);
     }
