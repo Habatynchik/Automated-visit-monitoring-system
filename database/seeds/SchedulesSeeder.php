@@ -22,7 +22,7 @@ class SchedulesSeeder extends Seeder
                     'week' => 'top',
                     'id_group' => 1,
                     'id_type_of_discipline' => 15,
-                    'id_classroom' => 223,
+                    'id_classroom' => 1,
                 )
         ));
     }

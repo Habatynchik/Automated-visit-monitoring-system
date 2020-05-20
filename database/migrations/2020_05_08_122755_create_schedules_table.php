@@ -14,15 +14,20 @@ class CreateSchedulesTable extends Migration
     public function up()
     {
         Schema::create('schedules', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('id_disciplines');
             $table->integer('id_teacher');
             $table->integer('index_number');
+            //$table->integer('index_number')->unsigned();
+            //$table->foreign('index_number')->references('id')->on('schedule_of_disciplines');
+
             $table->integer('day');
             $table->enum('week', ['top', 'bottom']);
             $table->integer('id_group');
             $table->integer('id_type_of_discipline');
             $table->integer('id_classroom');
+
+
         });
     }
 
