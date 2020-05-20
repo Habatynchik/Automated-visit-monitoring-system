@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
-class URLGeneration extends Controller
+class URLGenerationController extends Controller
 {
     public function index()
     {
@@ -17,6 +17,6 @@ class URLGeneration extends Controller
             ->select('pairs.*', 'schedules.*', 'classrooms.*')
             ->get();
 
-        return view('pairs.index', ['pairs' => $pairs]);
+        return $pairs;
     }
 }

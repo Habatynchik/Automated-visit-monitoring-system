@@ -1,0 +1,13 @@
+.registr-outer{
+	text-align: center;
+}
+
+.registr-inner{
+	width: 500px;
+    display: inline-block;
+}
+
+.registr_input{
+	width: 500px;
+	margin-bottom: 10px !important;
+}

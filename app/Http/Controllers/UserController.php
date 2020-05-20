@@ -17,7 +17,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function execute($method){
+    public function execute($method, $data = null){
         return $this->{$method}($data);
     }
 

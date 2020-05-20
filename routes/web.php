@@ -22,3 +22,5 @@ Route::get('/api/{controller}/{method}/{data?}', 'RouteController@call');
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/generate', 'URLGenerationController@index');

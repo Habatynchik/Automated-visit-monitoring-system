@@ -13,3 +13,4 @@ require('./bootstrap');
  */
 
 require('./components/Pairs/Main');
+require('./components/Admin/Registration');
