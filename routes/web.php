@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::get('/api/pairs', function() {
-	return App\Pair::all();
-});
+Route::get('/api/{controller}/{method}/{data?}', 'RouteController@call');
 
 Auth::routes(['register' => false]);
 
