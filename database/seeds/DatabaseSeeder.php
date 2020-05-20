@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PairsSeeder::class,
             Discipline_listSeeder::class,
+            Schedule_of_disciplinesSeeder::class,
+            GroupsSeeder::class,
         ]);
     }
 }

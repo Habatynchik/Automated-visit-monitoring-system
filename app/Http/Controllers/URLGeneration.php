@@ -11,10 +11,15 @@ class URLGeneration extends Controller
 {
     public function index()
     {
-        $pairs = DB::table('pairs')
-            ->join('schedules', 'pairs.id_schedule', '=', 'schedules.id')
+        /* $pairs = DB::table('pairs')
+             ->join('schedules', 'pairs.id_schedule', '=', 'schedules.id')
+             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
+             ->select('pairs.*', 'schedules.*', 'classrooms.*')
+             ->get();
+ */
+        $pairs = DB::table('schedules')
             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
-            ->select('pairs.*', 'schedules.*', 'classrooms.*')
+            ->select('schedules.*', 'classrooms.*')
             ->get();
 
         return view('pairs.index', ['pairs' => $pairs]);
