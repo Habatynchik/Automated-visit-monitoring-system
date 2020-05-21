@@ -31,7 +31,11 @@ class GroupController extends Controller
         return $this->{$method}($data);
     }
 
-    public function getGroup($data){
+    public function getGroupById($data){
         return Group::where('id', $data)->get()[0];
+    }
+
+    public function getGroupByName($data){
+        return Group::where('name', $data)->get()[0];
     }
 }

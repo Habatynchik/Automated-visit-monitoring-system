@@ -17,7 +17,15 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::get('/api/{controller}/{method}/{data?}', 'RouteController@call');
+Route::get('/test', function(){
+	return Group::where('id', $data)->get()[0];
+});
+
+Route::get('/admin/newUsers', function(){
+    return view('admin/register');
+});
+
+Route::any('/api/{controller}/{method}/{data?}', 'RouteController@call');
 
 Auth::routes(['register' => false]);
 

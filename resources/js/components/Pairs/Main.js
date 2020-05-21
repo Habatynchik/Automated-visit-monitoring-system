@@ -16,7 +16,6 @@ function Main() {
                 return response.json();
             })
             .then(result => {
-                //Fetched pair is stored in the state
                 setPairs(result);
             });
     }, []);
