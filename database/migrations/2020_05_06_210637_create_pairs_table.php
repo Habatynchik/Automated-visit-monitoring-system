@@ -19,7 +19,6 @@ class CreatePairsTable extends Migration
             $table->integer('id_schedule');
             $table->date('date');
             $table->time('arrive_time');
-            $table->string('link')->nullable();;
         });
     }
 

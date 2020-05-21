@@ -19,7 +19,7 @@ class SchedulesSeeder extends Seeder
                     'id_teacher' => 2,
                     'index_number' => 1,
                     'day' => 1,
-                    'week' => 'top',
+                    'week' => '1',
                     'id_group' => 1,
                     'id_type_of_discipline' => 15,
                     'id_classroom' => 1,

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pair as Pair;
+use App\Schedule as Schedule;
+use Illuminate\Support\Facades\DB;
 
-class PairController extends Controller
+class ScheduleController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,16 +23,20 @@ class PairController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getPairs()
+    public function getSchedules()
     {
-        return Pair::all();
+        return Schedule::all();
     }
 
     public function execute($method){
         return $this->{$method}();
     }
 
-    public function getPair(){
-        return Pair::where('id', request('id'))->get()[0];
+    public function getSchedule(){
+        return Schedule::where('id', request('id'))->get()[0];
+    }
+
+    public function getScheduleLink(){
+        return Schedule::getScheduleLink();
     }
 }

@@ -25,7 +25,7 @@ Route::get('/admin/newUsers', function(){
     return view('admin/register');
 });
 
-Route::any('/api/{controller}/{method}/{data?}', 'RouteController@call');
+Route::any('/api/{controller}/{method}', 'RouteController@call');
 
 Auth::routes(['register' => false]);
 
