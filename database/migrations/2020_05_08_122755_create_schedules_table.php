@@ -22,7 +22,7 @@ class CreateSchedulesTable extends Migration
             //$table->foreign('index_number')->references('id')->on('schedule_of_disciplines');
 
             $table->integer('day');
-            $table->enum('week', ['top', 'bottom']);
+            $table->enum('week', [1, 0]);
             $table->integer('id_group');
             $table->integer('id_type_of_discipline');
             $table->integer('id_classroom');
