@@ -23,13 +23,24 @@ class URLGenerationController extends Controller
             ->get();
 
 
+        $schedulesIdByCurrentTimeAndClassroom = DB::table('schedules')
+            ->where('index_number', $nowPair[0]->number)
+            ->where('day', 1)
+            ->where('week', 1)
+            ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
+            ->where('classrooms.room_number', 1) // номер комнати
+            ->where('classrooms.building_number', 1) // номер корпуса
+            ->select('schedules.id')
+            ->get();
+
         $schedules = DB::table('schedules')
             ->where('index_number', $nowPair[0]->number)
             ->where('day', 1)
             ->where('week', 1)
             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
-            ->select('schedules.id','schedules.index_number','schedules.day', 'classrooms.building_number', 'classrooms.room_number')
+            ->select('schedules.index_number','schedules.day','schedules.week', 'classrooms.building_number', 'classrooms.room_number')
             ->get();
+
 
         /* $pairs = DB::table('pairs')
              ->join('schedules', 'pairs.id_schedule', '=', 'schedules.id')

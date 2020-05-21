@@ -25,3 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/generate', 'URLGenerationController@index');
 
+
+
+
