@@ -20,8 +20,9 @@ class GuestMiddleware
 
         if (($request->path() != 'login') && !Auth::check()) {
             return redirect()->route('login');
+            //return redirect()->intended('login');
         }
-        
+
         return $next($request);
     }
 }
