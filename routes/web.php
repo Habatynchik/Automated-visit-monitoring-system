@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('test');
-});
+})->name('test');
 
 Route::get('/test', function(){
-	return Group::where('id', $data)->get()[0];
+	return request()->previous;
 });
 
 Route::get('/admin/newUsers', function(){
