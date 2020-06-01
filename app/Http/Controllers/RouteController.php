@@ -13,10 +13,10 @@ class RouteController extends Controller
         $this->middleware('auth');
     }
 
-    public function call($controller, $method, $data = null){
+    public function call($controller, $method){
         $className = "App\Http\Controllers\\" . ucfirst($controller) . "Controller";
         $controller = new $className;
 
-        return $controller->execute($method, $data);
+        return $controller->execute($method);
     }
 }

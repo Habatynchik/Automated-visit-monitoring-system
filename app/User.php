@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function classroom()
     {
-        return $this->hasOne('App\Classroom', 'id_assistant', 'id');
+            return $this->hasOne('App\Classroom', 'id_assistant', 'id');
     }
 
     public function group()

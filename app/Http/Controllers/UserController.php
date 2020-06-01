@@ -20,8 +20,8 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function execute($method, $data = null){
-        return $this->{$method}($data);
+    public function execute($method){
+        return $this->{$method}();
     }
 
     public function getUsers()
@@ -29,8 +29,12 @@ class UserController extends Controller
         return User::all();
     }
 
-    public function getUser($data){
-        return User::where('id', $data)->get()[0];
+    public function getUser(){
+        return User::where('id',request('id'))->get()[0];
+    }
+
+    public function getTeachers(){
+        return User::where('type', '1')->get();
     }
 
     public function store(){

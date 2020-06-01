@@ -18,7 +18,7 @@ Route::get('/', function () {
 })->name('test');
 
 Route::get('/test', function(){
-	return request()->previous;
+	return view('test');
 });
 
 Route::get('/admin/newUsers', function(){
