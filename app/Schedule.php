@@ -33,7 +33,7 @@ class Schedule extends Model
             ->select('schedules.link')
             ->get()[0];
 
-        return $scheduleLink->link;
+        return "http://127.0.0.1:8000/api/schedule/registrForPair" . $scheduleLink->link;
     }
 
     public static function generateScheduleLink(){
