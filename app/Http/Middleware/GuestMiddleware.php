@@ -14,10 +14,8 @@ class GuestMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        $sho = false;
-
         if (($request->path() != 'login') && !Auth::check()) {
             return redirect()->route('login');
             //return redirect()->intended('login');

@@ -21,4 +21,3 @@
     </div>
 </div>
 @endsection
-<div id="root"></div>

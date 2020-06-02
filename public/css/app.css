@@ -10896,3 +10896,7 @@ a.text-dark:focus {
   margin-bottom: 10px !important;
 }
 
+.registr_input.input_date {
+  width: 200px !important;
+}
+

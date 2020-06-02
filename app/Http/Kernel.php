@@ -21,7 +21,10 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e19a9c88833c2946d0e7f4dbd382e62824cb26f
     ];
 
     /**

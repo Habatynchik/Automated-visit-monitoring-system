@@ -11,3 +11,7 @@
 	width: 500px;
 	margin-bottom: 10px !important;
 }
+
+.registr_input.input_date{
+    width: 200px !important;
+}

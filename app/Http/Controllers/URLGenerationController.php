@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use App\Schedule as Schedule;
 
 class URLGenerationController extends Controller
 {
@@ -22,8 +23,7 @@ class URLGenerationController extends Controller
             ->select('number')
             ->get();
 
-
-        $schedulesIdByCurrentTimeAndClassroom = DB::table('schedules')
+        /*$schedulesIdByCurrentTimeAndClassroom = DB::table('schedules')
             ->where('index_number', $nowPair[0]->number)
             ->where('day', 1)
             ->where('week', 1)
@@ -31,15 +31,21 @@ class URLGenerationController extends Controller
             ->where('classrooms.room_number', 1) // номер комнати
             ->where('classrooms.building_number', 1) // номер корпуса
             ->select('schedules.id')
-            ->get();
+            ->get();*/
 
         $schedules = DB::table('schedules')
             ->where('index_number', $nowPair[0]->number)
             ->where('day', 1)
             ->where('week', 1)
             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
-            ->select('schedules.index_number','schedules.day','schedules.week', 'classrooms.building_number', 'classrooms.room_number')
+            ->select('schedules.id','schedules.index_number','schedules.day','schedules.week', 'classrooms.building_number', 'classrooms.room_number')
             ->get();
+
+        foreach($schedules as $schedule){
+            $oneSchedule = Schedule::where('id', $schedule->id)->get()[0];
+            $oneSchedule->link = url("/getPairLink?building=$schedule->building_number&room=$schedule->room_number");
+            $oneSchedule->save();
+        }
 
 
         /* $pairs = DB::table('pairs')
@@ -49,6 +55,6 @@ class URLGenerationController extends Controller
              ->get();
         */
 
-        return $schedules;
+        return true;
     }
 }
