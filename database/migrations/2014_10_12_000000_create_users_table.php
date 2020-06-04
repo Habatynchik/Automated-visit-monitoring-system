@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('type');
             $table->string('email');
             $table->string('password');
-            $table->string('id_group')->nullable();
+            $table->integer('id_group')->nullable();
         });
     }
 

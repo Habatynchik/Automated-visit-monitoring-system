@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('test');
 })->name('test');
 
+<<<<<<< HEAD
+=======
+Route::get('/test', function(){
+	return view('test');
+});
+
+>>>>>>> 9b867bde81e91e824afbdbac7602c444ebbd94d1
 Route::get('/admin/newUsers', function(){
     return view('admin/register');
 });

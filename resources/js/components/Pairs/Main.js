@@ -1,13 +1,11 @@
-import React, { Component, useEffect, setState, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
-function Main() {
+export default function Main() {
     const [pairs, setPairs] = useState([]);
 
     useEffect(() => {
@@ -33,7 +31,7 @@ function Main() {
     return (
       <div>
         <Grid container>
-          
+
           <Grid item sm={3}></Grid>
 
           <Grid item sm={6}>
@@ -47,8 +45,6 @@ function Main() {
       </div>
     );
 }
-
-export default Main;
 
 if (document.getElementById('pairs')) {
     ReactDOM.render(<Main />, document.getElementById('pairs'));
