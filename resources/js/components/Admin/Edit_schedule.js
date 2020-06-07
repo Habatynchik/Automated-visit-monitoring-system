@@ -106,7 +106,7 @@ export default function Edit_schedule(){
                             justifyContent: "center",
                             alignItems: "center"
                         }}>
-                        {renderFaculties()}
+                        {renderGroups()}
                     </ButtonGroup>
                 </div>
             </Grid>

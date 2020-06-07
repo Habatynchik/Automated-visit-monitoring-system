@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function store(){
 
-        if (request('type') == '1') {
+        if (request('type') == '3') {
             $this->validate(request(), [
                 'name' => 'required|min:2',
                 'surname' => 'required|min:2',
@@ -49,7 +49,7 @@ class UserController extends Controller
             ]);
 
             $group = null;
-        } else if(request('type') == '0'){
+        } else if(request('type') == '4'){
             $this->validate(request(), [
                 'name' => 'required|min:2',
                 'surname' => 'required|min:2',
