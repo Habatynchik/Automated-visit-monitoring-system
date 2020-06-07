@@ -17,12 +17,13 @@ class URLGenerationController extends Controller
         // date("N") // номер дня недели для поиска по дням
         // date("W")%2 // номер недели, для поиска верхней и нижней недели
 
+        /*
         $nowPair = DB::table('schedule_of_disciplines')
             ->whereTime('start_time', '<=', '09:00:00')
             ->whereTime('end_time', '>=', '09:00:00')
             ->select('number')
             ->get();
-
+        */
         /*$schedulesIdByCurrentTimeAndClassroom = DB::table('schedules')
             ->where('index_number', $nowPair[0]->number)
             ->where('day', 1)
