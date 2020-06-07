@@ -39,4 +39,8 @@ class ScheduleController extends Controller
     public function getScheduleLink(){
         return Schedule::getScheduleLink();
     }
+
+    public function generateScheduleLink(){
+        return Schedule::generateScheduleLink();
+    }
 }

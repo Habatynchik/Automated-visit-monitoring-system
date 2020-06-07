@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Crypt;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -33,5 +34,14 @@ class Schedule extends Model
             ->get()[0];
 
         return $scheduleLink->link;
+    }
+
+    public static function generateScheduleLink(){
+
+        DB::table('schedules')
+            ->where('id_disciplines', request('id_disciplines'))
+            ->where('id_teacher', request('id_teacher'))
+            ->where('id_group', request('id_group'))
+            ->update(['link' => '?building_number=' . request('building') . '&room_number=' . request('room')]);
     }
 }
