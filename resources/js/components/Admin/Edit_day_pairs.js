@@ -49,7 +49,7 @@ export default function Edit_day_pairs(){
     }, []);
 
         return (
-            <div style={{width: '50%'}}>
+            <div style={{width: '100%'}}>
                 <MaterialTable
                     title="Редагування розкладу"
                     localization={{

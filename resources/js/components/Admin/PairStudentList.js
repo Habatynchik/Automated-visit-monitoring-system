@@ -9,7 +9,7 @@ export default function PairStudentList() {
         data: []
     });
 
-    //const urlData = new URLSearchParams(location.search);
+    const urlData = new URLSearchParams(location.search);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ export default function PairStudentList() {
     };
 
     useEffect(() => {
-        fetch('/api/pair/getNowPairByTeacher?idTeacher=2' ) //+ urlData.get("id"))
+        fetch('/api/pair/getNowPairByTeacher?idTeacher=' + urlData.get("id"))
             .then(response => {
                 return response.json();
             })
@@ -53,7 +53,7 @@ export default function PairStudentList() {
     return (
         <form onSubmit={handleSubmit} noValidate className="pair-form">
             <MaterialTable
-                //title={urlData.get("discipline")} //номер группы
+                title={urlData.get("discipline")} //номер группы
                 columns={state.columns}
                 data={nowPair.data}
                 editable={{
