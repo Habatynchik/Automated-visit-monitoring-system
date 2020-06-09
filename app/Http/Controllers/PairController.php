@@ -38,6 +38,35 @@ class PairController extends Controller
         return Pair::where('id', request('id'))->get()[0];
     }
 
+
+    public function updatePairs()
+    {
+
+        date_default_timezone_set('Europe/Kiev');
+        $pairs = request('nowPair');
+
+
+        foreach ($pairs['data'] as $pair) {
+            $tmp = DB::table('pairs')
+                ->where('id', $pair['id'])
+                ->select('arrive_time')
+                ->get();
+
+            if ($tmp[0]->arrive_time == null && $pair['check'] == 1)
+                DB::table('pairs')
+                    ->where('id', $pair['id'])
+                    ->update(['arrive_time' => date("H:i:s"), 'status_change_teacher' => 1]);
+
+            else if ($tmp[0]->arrive_time != null && $pair['check'] == 0)
+                DB::table('pairs')
+                    ->where('id', $pair['id'])
+                    ->update(['arrive_time' => null, 'status_change_teacher' => 1]);
+        }
+
+        return true;
+    }
+
+
     public function getNowPairByTeacher()
     {
         $idTeacher = request("idTeacher");
@@ -54,24 +83,26 @@ class PairController extends Controller
             ->select('number')
             ->get();
 
-        $nowPairByRoom =
+        $nowPairByRoom['data'] =
+            DB::table('schedules')
+                ->where('index_number', $nowPair[0]->number)
+                ->where('day', 1) // date("N")
+                ->where('week', 1) // date("W")%2
+                ->where('id_teacher', $idTeacher)
+                ->join('groups', 'schedules.id_group', '=', 'groups.id')
+                ->join('users', 'groups.id', '=', 'users.id_group')
+                ->join('pairs', 'users.id', '=', 'pairs.id_user_student')
+                ->where('pairs.date', "2020-05-20")
+                ->join('discipline_lists', 'schedules.id_disciplines', '=', 'discipline_lists.id')
+                ->select('users.surname', 'users.name', 'users.second_name', 'groups.name AS group_name', 'pairs.*')
+                ->get();
 
-          /* DB::table('discipline_lists')
-            //->where('id', 1)
-            ->select()
-            ->get();*/
-        DB::table('schedules')
-            ->where('index_number', $nowPair[0]->number)
-            ->where('day', 1) // date("N")
-            ->where('week', 1) // date("W")%2
-            ->where('id_teacher', $idTeacher)
-            ->join('groups', 'schedules.id_group', '=', 'groups.id')
-            ->join('users', 'groups.id', '=', 'users.id_group')
-            ->join('pairs', 'users.id', '=', 'pairs.id_user_student')
-            ->where('pairs.date', "2020-05-20")
-            ->join('discipline_lists', 'schedules.id_disciplines', '=', 'discipline_lists.id')
-            ->select('discipline_lists.name AS discipline_name' , 'users.surname', 'users.name', 'users.second_name', 'groups.name AS group_name' , 'pairs.arrive_time')
-            ->get();
+        foreach ($nowPairByRoom['data'] as $i => $item) {
+            if ($item->arrive_time != null) {
+                $item->check = 1;
+            } else
+                $item->check = 0;
+        }
 
         return $nowPairByRoom;
     }

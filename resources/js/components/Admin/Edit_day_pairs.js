@@ -171,3 +171,7 @@ export default function Edit_day_pairs(){
         );
 
 }
+
+if (document.getElementById('edit_day_schedule')) {
+    ReactDOM.render(<Edit_day_pairs/>, document.getElementById('edit_day_schedule'));
+}
