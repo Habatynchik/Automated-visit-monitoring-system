@@ -28,7 +28,13 @@ class GroupsSeeder extends Seeder
                 ),
             1 =>
                 array(
-                    'name' => "КІ17008бск",
+                    'name' => "КІ17007бск",
+                    'id_faculty' => 1,
+                    'id_department' => 1
+                ),
+            2 =>
+                array(
+                    'name' => "КІ16007б",
                     'id_faculty' => 1,
                     'id_department' => 1
                 ),

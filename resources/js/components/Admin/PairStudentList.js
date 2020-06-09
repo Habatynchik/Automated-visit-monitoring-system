@@ -41,11 +41,11 @@ export default function PairStudentList() {
             {
                 title: "Наявність",
                 field: "check",
-                lookup: { 1: "Присутній", 0: "Відсутній"}
+                lookup: {1: "Присутній", 0: "Відсутній"}
             },
             {title: 'Surname', editable: 'never', field: 'surname'},
             {title: 'Name', editable: 'never', field: 'name'},
-            //{title: 'Second name', editable: 'never', field: 'second_name'},
+            {title: 'Second name', editable: 'never', field: 'second_name'},
             {title: 'Arrive time', editable: 'never', field: 'arrive_time'},
             {title: 'Group', editable: 'never', field: 'group_name'},
         ],
@@ -64,7 +64,6 @@ export default function PairStudentList() {
                         new Promise((resolve) => {
                             setTimeout(() => {
                                 resolve();
-
                                 if (oldData) {
                                     setNowPair((prevState) => {
                                         const data = [...prevState.data];
@@ -73,7 +72,9 @@ export default function PairStudentList() {
                                     });
                                 }
                             }, 600);
-                        })
+                        }),
+                    onRowAdd: null,
+                    onRowDelete: null
                 }}
 
             />
@@ -81,7 +82,7 @@ export default function PairStudentList() {
             <Button
                 variant="contained"
                 color="primary"
-                size="large"
+                size="small"
                 type="submit"
                 startIcon={<SaveIcon/>}
             >
