@@ -12,7 +12,7 @@ export default function PairStudentList() {
         data: []
     });
 
-    const urlData = new URLSearchParams(window.location.search);
+    const urlData = new URLSearchParams(location.search);
 
     const handleSubmit = (e) => {
         e.preventDefault();
