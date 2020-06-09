@@ -24,7 +24,7 @@ export default function PairStudentList() {
     };
 
     useEffect(() => {
-        fetch('/api/pair/getNowPairByTeacher?idTeacher=2' ))//+ urlData.get("id"))
+        fetch('/api/pair/getNowPairByTeacher?idTeacher=2' ) //+ urlData.get("id"))
             .then(response => {
                 return response.json();
             })
