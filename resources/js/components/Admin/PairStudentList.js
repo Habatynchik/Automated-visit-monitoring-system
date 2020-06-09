@@ -3,16 +3,13 @@ import MaterialTable from 'material-table';
 import ReactDOM from "react-dom";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import TextField from "@material-ui/core/TextField";
-import Checkbox from "@material-ui/core/Checkbox";
 
 export default function PairStudentList() {
     const [nowPair, setNowPair] = useState({
         data: []
     });
 
-    const urlData = new URLSearchParams(location.search);
+    //const urlData = new URLSearchParams(location.search);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +24,7 @@ export default function PairStudentList() {
     };
 
     useEffect(() => {
-        fetch('/api/pair/getNowPairByTeacher?idTeacher=' + urlData.get("id"))
+        fetch('/api/pair/getNowPairByTeacher?idTeacher=2' ))//+ urlData.get("id"))
             .then(response => {
                 return response.json();
             })
@@ -56,7 +53,7 @@ export default function PairStudentList() {
     return (
         <form onSubmit={handleSubmit} noValidate className="pair-form">
             <MaterialTable
-                title={urlData.get("discipline")} //номер группы
+                //title={urlData.get("discipline")} //номер группы
                 columns={state.columns}
                 data={nowPair.data}
                 editable={{
