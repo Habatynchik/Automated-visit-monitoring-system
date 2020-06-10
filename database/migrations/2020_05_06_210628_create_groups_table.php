@@ -16,7 +16,6 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('id_faculty');
             $table->integer('id_department');
         });
     }

@@ -41,6 +41,7 @@ class UserController extends Controller
 
     public function store(){
 
+        $group = null;
         if (request('type') == '3') {
             $this->validate(request(), [
                 'name' => 'required|min:2',
