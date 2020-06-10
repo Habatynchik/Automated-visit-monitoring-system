@@ -41,7 +41,6 @@ class PairController extends Controller
 
     public function updatePairs()
     {
-
         date_default_timezone_set('Europe/Kiev');
         $pairs = request('nowPair');
 
@@ -66,6 +65,22 @@ class PairController extends Controller
         return true;
     }
 
+    public function getStudentTrafficByGroupAndDisciplines()
+    {
+        $idGroup = request("idGroup");
+        $idDisciplines = request("idDisciplines");
+
+        $list = DB::table('schedules')
+            ->where('id_disciplines', $idDisciplines)
+            ->where('schedules.id_group', $idGroup)
+            ->join('pairs', 'schedules.id', '=', 'pairs.id_schedule')
+            ->join('users', 'pairs.id_user_student', '=', 'users.id')
+            ->where('users.id_group', $idGroup)
+            ->select('users.surname', 'pairs.date', 'pairs.arrive_time')
+            ->get();
+
+        return $list;
+    }
 
     public function getNowPairByTeacher()
     {

@@ -88,6 +88,7 @@ export default function PairStudentList() {
         </form>
     );
 }
+
 if (document.getElementById('pair_student_list')) {
     ReactDOM.render(<PairStudentList/>, document.getElementById('pair_student_list'));
 }

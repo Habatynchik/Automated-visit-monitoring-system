@@ -17,18 +17,19 @@ Route::get('/', function () {
     return view('test');
 })->name('test');
 
-
 Route::get('/test', function(){
 	return view('test');
 });
-
 
 Route::get('/pairstudentlist', function(){
     return view('pairstudentlist');
 });
 
-Route::get('/getTest', 'PairController@getNowPairByTeacher');
+Route::get('/getStudentTraffic', function(){
+    return view('studentTraffic');
+});
 
+Route::get('/getTest', 'PairController@getStudentTrafficByGroupAndDisciplines'); // ?idGroup=1&idDisciplines=1
 
 Route::get('/admin/newUsers', function(){
     return view('admin/register');

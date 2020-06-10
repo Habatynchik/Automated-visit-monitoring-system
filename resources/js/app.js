@@ -17,3 +17,4 @@ require('./components/Admin/User_registration');
 require('./components/Admin/Edit_day_pairs');
 require('./components/Admin/Edit_schedule');
 require('./components/Admin/PairStudentList');
+require('./components/Admin/StudentTraffic');
