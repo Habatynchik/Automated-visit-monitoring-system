@@ -19,6 +19,10 @@
       <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/guzzlehttp/guzzle" />
       <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/composer" />
       <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/psr/container" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/string" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-php80" />
+      <path value="$USER_HOME$/AppData/Roaming/Composer/vendor/symfony/polyfill-intl-grapheme" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

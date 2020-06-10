@@ -18,7 +18,9 @@ class CreatePairsTable extends Migration
             $table->integer('id_user_student');
             $table->integer('id_schedule');
             $table->date('date');
-            $table->time('arrive_time');
+            $table->time('arrive_time')->nullable();
+            $table->boolean('status_change_teacher')->nullable()->default(FALSE);;
+            $table->string('link')->nullable();
         });
     }
 

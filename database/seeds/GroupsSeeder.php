@@ -17,19 +17,23 @@ class GroupsSeeder extends Seeder
 
         DB::table('departments')->insert([
             'name' => 'Комп\'ютерних мереж і систем',
+            'faculty_id' => 1
         ]);
 
         DB::table('groups')->insert(array(
             0 =>
                 array(
                     'name' => "КІ18008бск",
-                    'id_faculty' => 1,
                     'id_department' => 1
                 ),
             1 =>
                 array(
-                    'name' => "КІ17008бск",
-                    'id_faculty' => 1,
+                    'name' => "КІ17007бск",
+                    'id_department' => 1
+                ),
+            2 =>
+                array(
+                    'name' => "КІ16007б",
                     'id_department' => 1
                 ),
         ));

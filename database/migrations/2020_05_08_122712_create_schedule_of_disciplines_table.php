@@ -13,6 +13,8 @@ class CreateScheduleOfDisciplinesTable extends Migration
      */
     public function up()
     {
+
+
         Schema::create('schedule_of_disciplines', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('number');

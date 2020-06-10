@@ -22,6 +22,7 @@ class CreateSchedulesTable extends Migration
             $table->enum('week', [1, 0]);
             $table->integer('id_group');
             $table->integer('id_type_of_discipline');
+            //$table->integer('id_type_of_discipline');
             $table->integer('id_classroom');
             $table->string('link')->nullable();
         });
