@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Group as Group;
+use App\Department as Department;
 
-class GroupController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,24 +22,16 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getGroups()
+    public function getDepartments()
     {
         if(request('by')){
-            return Group::where(request('by'), request('value'))->get();
+            return Department::where(request('by'), request('value'))->get();
         } else {
-            return Group::all();
+            return Department::all();
         }
     }
 
     public function execute($method){
         return $this->{$method}();
-    }
-
-    public function getGroupById(){
-        return Group::where('id', request('id'))->get()[0];
-    }
-
-    public function getGroupByName(){
-        return Group::where('name', request('name'))->get()[0];
     }
 }

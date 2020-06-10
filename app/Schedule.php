@@ -33,15 +33,18 @@ class Schedule extends Model
             ->select('schedules.link')
             ->get()[0];
 
-        return "http://127.0.0.1:8000/api/schedule/registrForPair" . $scheduleLink->link;
+        return "http://automated-visit-monitoring-sys.herokuapp.com/api/schedule/registerForPair" . $scheduleLink->link;
     }
 
     public static function generateScheduleLink(){
+        $link = '?building_number=' . request('building') . '&room_number=' . request('room');
 
         DB::table('schedules')
-            ->where('id_disciplines', request('id_disciplines'))
-            ->where('id_teacher', request('id_teacher'))
-            ->where('id_group', request('id_group'))
-            ->update(['link' => '?building_number=' . request('building') . '&room_number=' . request('room')]);
+            ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
+            ->where('classrooms.building_number', request('building'))
+            ->where('classrooms.room_number', request('room'))
+            ->update(['link' => $link]);
+
+        return $link;
     }
 }

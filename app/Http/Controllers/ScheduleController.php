@@ -43,4 +43,10 @@ class ScheduleController extends Controller
     public function generateScheduleLink(){
         return Schedule::generateScheduleLink();
     }
+
+    public function getGroupScheduleForDay(){
+        return Schedule::where('day', request('day'))
+            ->where('week', request('week'))
+            ->get();
+    }
 }
