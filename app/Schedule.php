@@ -75,6 +75,7 @@ class Schedule extends Model
 
         $groupsID = DB::table('schedules')
             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
+            ->where('schedules.index_number', $nowPair[0]->number)
             ->where('day', date("N")) // date("N")
             ->where('week', 1)
             ->where('classrooms.building_number', request('building'))
@@ -92,11 +93,8 @@ class Schedule extends Model
                 $query[] = ['id_user_student' => $student->id, 'id_schedule' => $groupID->id, 'arrive_time' => null, 'date' => $date, 'status_change_teacher' => 0];
             }
 
-
+            DB::table('pairs')->insert($query);
         }
-
-
-        DB::table('pairs')->insert($query);
 
         return "http://automated-visit-monitoring-sys.herokuapp.com/api/schedule/registerForPair".$link;
     }
