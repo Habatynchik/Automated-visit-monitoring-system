@@ -104,15 +104,15 @@ class PairController extends Controller
         // date("W")%2 // номер недели, для поиска верхней и нижней недели
 
         $nowPair = DB::table('schedule_of_disciplines')
-            ->whereTime('start_time', '<=', '09:00:00') // date("H:i:s")
-            ->whereTime('end_time', '>=', '09:00:00') // date("H:i:s")
+            ->whereTime('start_time', '<=', date("H:i:s")) // date("H:i:s")
+            ->whereTime('end_time', '>=', date("H:i:s")) // date("H:i:s")
             ->select('number')
             ->get();
 
         $nowPairByRoom['data'] =
             DB::table('schedules')
                 ->where('index_number', $nowPair[0]->number)
-                ->where('day', 1) // date("N")
+                ->where('day', date("N")) // date("N")
                 ->where('week', 1) // date("W")%2
                 ->where('id_teacher', $idTeacher)
                 ->join('groups', 'schedules.id_group', '=', 'groups.id')

@@ -43,22 +43,39 @@ class Schedule extends Model
         $link = '?building_number=' . request('building') . '&room_number=' . request('room');
 
         $nowPair = DB::table('schedule_of_disciplines')
-                ->whereTime('start_time', '<=', '17:00:00') // date("H:i:s")
-                ->whereTime('end_time', '>=', '17:00:00') // date("H:i:s")
+                ->whereTime('start_time', '<=', date("H:i:s")) // date("H:i:s")
+                ->whereTime('end_time', '>=', date("H:i:s")) // date("H:i:s")
                 ->select('number')
                 ->get();
 
+        $check = DB::table('schedules')
+            ->where('schedules.index_number', $nowPair[0]->number)
+            ->where('schedules.day', date("N")) // date("N")
+            ->where('week', 1) // date("W")%2
+            ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
+            ->where('classrooms.building_number', request('building'))
+            ->where('classrooms.room_number', request('room'))
+            ->select('schedules.link')
+            ->get()[0];
+
+        if ($check->link != null) {
+            return $check->link;
+        }
+
         DB::table('schedules')
-            ->where('schedules.index_number', 1)
-            ->where('schedules.day', 1) // date("N")
+            ->where('schedules.index_number', $nowPair[0]->number)
+            ->where('schedules.day', date("N")) // date("N")
+            ->where('week', 1) // date("W")%2
             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
             ->where('classrooms.building_number', request('building'))
             ->where('classrooms.room_number', request('room'))
             ->update(['schedules.link' => $link]);
 
+
+
         $groupsID = DB::table('schedules')
             ->join('classrooms', 'schedules.id_classroom', '=', 'classrooms.id')
-            ->where('day', 1) // date("N")
+            ->where('day', date("N")) // date("N")
             ->where('week', 1)
             ->where('classrooms.building_number', request('building'))
             ->where('classrooms.room_number', request('room'))
@@ -66,7 +83,7 @@ class Schedule extends Model
             ->get();
 
         foreach($groupsID as $groupID){
-            $groupStudents = User::where('id_group', $groupID->id)
+            $groupStudents = User::where('id_group', $groupID->id_group)
                 ->get();
 
             $query = [];
@@ -75,8 +92,11 @@ class Schedule extends Model
                 $query[] = ['id_user_student' => $student->id, 'id_schedule' => $groupID->id, 'arrive_time' => null, 'date' => $date, 'status_change_teacher' => 0];
             }
 
-            DB::table('pairs')->insert($query);
+
         }
+
+
+        DB::table('pairs')->insert($query);
 
         return $link;
     }
