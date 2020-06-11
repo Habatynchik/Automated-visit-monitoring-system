@@ -14,31 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('test');
-})->name('test');
-
-Route::get('/test', function(){
-	return view('test');
-});
+    return view('home');
+})->name('home');
 
 Route::get('/pairstudentlist', function(){
     return view('pairstudentlist');
-});
+})->name('pairstudentlist');
 
 Route::get('/getStudentTraffic', function(){
     return view('studentTraffic');
-});
+})->name('studentTraffic');
+
+Route::get('/admin/editSchedule', function(){
+    return view('editSchedule');
+})->name('editSchedule');
 
 Route::get('/getTest', 'PairController@getStudentTrafficByGroupAndDisciplines'); // ?idGroup=1&idDisciplines=1
 
 Route::get('/admin/newUsers', function(){
     return view('admin/register');
-});
+})->name('register_users');
 
 Route::any('/api/{controller}/{method}', 'RouteController@call');
 
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/generate', 'URLGenerationController@index');

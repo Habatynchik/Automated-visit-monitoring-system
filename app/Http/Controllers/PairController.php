@@ -33,6 +33,14 @@ class PairController extends Controller
         return $this->{$method}();
     }
 
+    public function registerStudentForPair(){
+        return Pair::registerStudentForPair();
+    }
+
+    public static function updatePresence($building, $room){
+        return Pair::updatePresence($building, $room);
+    }
+
     public function getPair()
     {
         return Pair::where('id', request('id'))->get()[0];
@@ -82,9 +90,12 @@ class PairController extends Controller
         return $list;
     }
 
-    public function getNowPairByTeacher()
+    public static function getNowPairByTeacher($idTeacher = null)
     {
-        $idTeacher = request("idTeacher");
+
+        if($idTeacher == null){
+            $idTeacher = request("idTeacher");
+        }
 
         date_default_timezone_set('Europe/Kiev');
 
@@ -107,9 +118,9 @@ class PairController extends Controller
                 ->join('groups', 'schedules.id_group', '=', 'groups.id')
                 ->join('users', 'groups.id', '=', 'users.id_group')
                 ->join('pairs', 'users.id', '=', 'pairs.id_user_student')
-                ->where('pairs.date', "2020-05-20")
                 ->join('discipline_lists', 'schedules.id_disciplines', '=', 'discipline_lists.id')
-                ->select('users.surname', 'users.name', 'users.second_name', 'groups.name AS group_name', 'pairs.*')
+                ->where('pairs.date', date("Y-m-d"))
+                ->select('users.surname', 'users.name', 'users.second_name', 'groups.name AS group_name', 'pairs.*', 'discipline_lists.name as discipline_name')
                 ->get();
 
         foreach ($nowPairByRoom['data'] as $i => $item) {

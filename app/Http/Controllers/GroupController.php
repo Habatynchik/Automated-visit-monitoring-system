@@ -36,7 +36,7 @@ class GroupController extends Controller
     }
 
     public function getGroupById(){
-        return Group::where('id', request('id'))->get()[0];
+        return Group::where('id', request('id'))->get();
     }
 
     public function getGroupByName(){

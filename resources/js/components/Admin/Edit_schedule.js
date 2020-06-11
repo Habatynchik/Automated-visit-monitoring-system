@@ -94,7 +94,7 @@ export default function Edit_schedule(){
     }
 
     function renderGroups(){
-        fetch('api/group/getGroups?by=id_department&value=' + facultyID)
+        fetch('/api/group/getGroups?by=id_department&value=' + facultyID)
             .then(response => {
                 return response.json();
             })
