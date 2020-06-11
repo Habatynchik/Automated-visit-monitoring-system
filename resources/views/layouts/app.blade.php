@@ -56,7 +56,7 @@
                                        {{ __("Головна сторінка") }}
                                     </a>
 
-                                    @if (auth()->user()->type == (3 || 4))
+                                    @if (auth()->user()->type == (4) || auth()->user()->type == (3))
                                         <a class="dropdown-item" href="{{ route('studentTraffic') }}">
                                            {{ __("Статистика відвідування") }}
                                         </a>

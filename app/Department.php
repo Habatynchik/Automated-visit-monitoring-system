@@ -8,6 +8,6 @@ class Department extends Model
 {
     public function groups()
     {
-    	return $this->hasMany('groups', 'id_department', 'id');
+    	return $this->hasMany('App\Faculty', 'id_department', 'id');
     }
 }

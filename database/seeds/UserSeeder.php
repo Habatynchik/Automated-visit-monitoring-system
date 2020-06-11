@@ -18,10 +18,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Гамаюнов',
                     'second_name' => 'Дмитрович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'habatynchik@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             1 =>
                 array(
@@ -29,10 +29,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Ілля',
                     'second_name' => 'Андрійович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'smiyan.ilya@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             2 =>
                 array(
@@ -40,10 +40,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Кривенко',
                     'second_name' => 'Ігорович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'tekillaartem@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             3 =>
                 array(
@@ -51,10 +51,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Приходько',
                     'second_name' => 'Олександрівна',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'inna.loconte.san@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             4 =>
                 array(
@@ -62,10 +62,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Мусійчук',
                     'second_name' => 'Борисович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'musiichuk646@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             5 =>
                 array(
@@ -73,10 +73,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Чорноус',
                     'second_name' => 'Богданович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'smile.lol007@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             6 =>
                 array(
@@ -84,10 +84,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Хвост',
                     'second_name' => 'Володимирович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'khvost@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 2
+                    'id_group' => 2,
                 ),
             7 =>
                 array(
@@ -95,10 +95,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Шрамко',
                     'second_name' => 'Ігорівна',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'habatynchik@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 3
+                    'id_group' => 3,
                 ),
             8 =>
                 array(
@@ -106,10 +106,10 @@ class UserSeeder extends Seeder
                     'surname' => 'Гребініченко',
                     'second_name' => 'Тарасович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'kozzak2610@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 1
+                    'id_group' => 1,
                 ),
             9 =>
                 array(
@@ -117,20 +117,21 @@ class UserSeeder extends Seeder
                     'surname' => 'Єгоров',
                     'second_name' => 'Олександрович',
                     'birth_date' => '1998-05-12',
-                    'type' => 4,
+                    'type' => 0,
                     'email' => 'egorov@gmail.com',
                     'password' => Hash::make('password'),
-                    'id_group' => 3
+                    'id_group' => 3,
                 ),
             10 =>
                 array(
-                    'name' => 'Vladislav',
-                    'surname' => 'Redko',
-                    'second_name' => 'Petrovich',
+                    'name' => 'Валерій',
+                    'surname' => 'Лахно',
+                    'second_name' => 'Анатолійович',
                     'birth_date' => '1999-02-15',
-                    'type' => 0,
+                    'type' => 1,
                     'email' => 'vredko@gmail.com',
-                    'password' => Hash::make('password')
+                    'password' => Hash::make('password'),
+                    'id_group' => 3,
                 )
         ));
     }

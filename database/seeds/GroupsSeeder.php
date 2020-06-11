@@ -17,7 +17,7 @@ class GroupsSeeder extends Seeder
 
         DB::table('departments')->insert([
             'name' => 'Комп\'ютерних мереж і систем',
-            'faculty_id' => 1
+            'id_faculty' => 1
         ]);
 
         DB::table('groups')->insert(array(
