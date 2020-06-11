@@ -23,8 +23,8 @@ class Pair extends Model
         date_default_timezone_set('Europe/Kiev');
 
         $nowPair = DB::table('schedule_of_disciplines')
-            ->whereTime('start_time', '<=', date("H:i:s")) // date("H:i:s")
-            ->whereTime('end_time', '>=', date("H:i:s")) // date("H:i:s")
+            ->whereTime('start_time', '<=', "09:00:00") // date("H:i:s")
+            ->whereTime('end_time', '>=', "09:00:00") // date("H:i:s")
             ->select('number')
             ->get();
 
