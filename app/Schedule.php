@@ -59,7 +59,7 @@ class Schedule extends Model
             ->get()[0];
 
         if ($check->link != null) {
-            return $check->link;
+            return "http://automated-visit-monitoring-sys.herokuapp.com/api/schedule/registerForPair".$check->link;
         }
 
         DB::table('schedules')
@@ -98,6 +98,6 @@ class Schedule extends Model
 
         DB::table('pairs')->insert($query);
 
-        return $link;
+        return "http://automated-visit-monitoring-sys.herokuapp.com/api/schedule/registerForPair".$link;
     }
 }
